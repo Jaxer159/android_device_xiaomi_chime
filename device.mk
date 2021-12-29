@@ -101,19 +101,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
-    android.hardware.drm@1.2-service.clearkey
+    android.hardware.drm@1.3-service.clearkey
  
 # Iorapd
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.iorapd.enable=true \
     iorapd.perfetto.enable=true \
     iorapd.readahead.enable=true
-
-# FM
-PRODUCT_PACKAGES += \
-    FM2 \
-    libqcomfm_jni \
-    qcom.fmradio
 
 # HIDL
 PRODUCT_PACKAGES += \
