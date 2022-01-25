@@ -117,7 +117,8 @@ PRODUCT_PACKAGES += \
 
 # IPACM
 PRODUCT_PACKAGES += \
-    android.hardware.tetheroffload.config@1.0
+    ipacm \
+    IPACM_cfg.xml
 
 # MIUI Quick Charger
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -147,7 +148,8 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service.xiaomi_juice
+    android.hardware.power-service.xiaomi-libperfmgr \
+    android.hardware.power.stats@1.0-service.mock
 
 # Perf
 PRODUCT_PACKAGES += \
