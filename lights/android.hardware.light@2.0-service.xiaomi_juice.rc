@@ -5,6 +5,10 @@ on boot
     chmod 0644 /sys/class/backlight/panel0-backlight/brightness
     chmod 0644 /sys/class/backlight/panel0-backlight/max_brightness
 
+    chown system system /sys/touchpanel/double_tap 
+    chmod 0777 /sys/touchpanel/double_tap
+    write /sys/touchpanel/double_tap 1
+
 service vendor.light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service
     interface android.hardware.light@2.0::ILight default
     class hal
@@ -12,3 +16,13 @@ service vendor.light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service
     group system
     # shutting off lights while powering-off
     shutdown critical
+
+    # Fast charging
+    write /sys/kernel/fast_charge/force_fast_charge 1
+    # Fingerprint Boost
+    write /sys/kernel/fp_boost/enabled 1
+
+on property:sys.boot_completed=1
+    # Restrict permissions to socket file
+    # to hide Magisk & co.
+    chmod 440 /proc/net/unix
